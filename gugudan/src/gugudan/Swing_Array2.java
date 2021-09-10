@@ -115,12 +115,22 @@ public class Swing_Array2 extends JFrame {
 			int a = Integer.parseInt(str);
 			// 입력받은 값 까지만 구구단 작성
 			int[][] gugu = new int[a][9];
+			
+			
 			for (int i = 2; i <= a; i++) {
 				for (int j = 1; j <= 9; j++) {
 					gugu[i-2][j-1] = i * j;
 				}
 			}
 			textArea.append("textField에 " + a + "를 입력하면?" + "\n");
+			
+			if (a == 1) {
+				textArea.append("값이 존재하지 않습니다." + "\n");
+				textArea.append("\n");
+				textField.setText("");
+				return;
+			}
+			
 			// 구구단 출력 코드
 			for (int i = 0; i < gugu.length-1; i++) {
 				textArea.append((i+2) + "단 :" + Arrays.toString(gugu[i]) + "\n");
@@ -131,7 +141,7 @@ public class Swing_Array2 extends JFrame {
 	}
 	
 	private void showFrame() {
-		this.setSize(300, 300);
+		this.setSize(400, 400);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
